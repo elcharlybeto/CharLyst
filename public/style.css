@@ -1,0 +1,136 @@
+.page-content {
+  display: flex;
+  justify-content: center;
+}
+.demo-list-control {
+  width: 80% !important;
+}
+li {
+  font-size: 1.5em !important;
+}
+.mdl-button--icon {
+  width: 50px !important;
+  margin: 10px;
+}
+.mdl-list__item {
+  margin: 5px;
+  height: 70px;
+  background-color: rgb(245, 241, 241);
+}
+.add-item-form {
+  width: 100%;
+  height: 120px;
+  background-color: rgb(187, 211, 221);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+}
+.edit-item-form {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  height: 120px;
+  background-color: rgb(238, 229, 153);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  z-index: -2;
+}
+.mdl-textfield {
+  width: 70% !important;
+}
+.mdl-textfield__input,
+.mdl-textfield__label {
+  font-size: 24px !important;
+}
+.header-buttons {
+  width: auto;
+  background-color: green;
+  display: flex;
+  align-content: space-around;
+}
+.cant-prod {
+  padding: 10px;
+}
+.buy-item-form {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  height: 120px;
+  background-color: rgb(209, 193, 189);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  position: fixed;
+  bottom: 0;
+  z-index: -5;
+}
+.buy-textfield {
+  width: 25% !important;
+  margin: 10px !important;
+}
+.buy-text {
+  font-size: 1.5em;
+}
+.totales {
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  font-size: 2em;
+  color: brown;
+  background-color: beige;
+}
+.btn-ok {
+  background-color: rgb(47, 255, 109) !important;
+}
+.btn-cancel {
+  background-color: rgb(255, 47, 47) !important;
+}
+.edit-buy-item-form{
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  height: 120px;
+  background-color: rgb(209, 193, 189);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  position: fixed;
+  bottom: 0;
+  z-index: -5;
+}
+
+.confirm{
+  box-sizing: border-box;
+  border: 2px solid ;
+  background-color: rgb(206, 233, 198);
+  width: 80%;
+  height: 40%;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 5px 5px 5px;
+  font-size: 1.4em;
+  font-weight: 300;
+}
+.contenedor{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+
+.respuestas{
+  margin-top: 40px;
+}
+
+.active{
+  background-color: red;
+}
