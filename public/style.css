@@ -1,23 +1,32 @@
+@import url("./vendor/mdl/material.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+*{
+  box-sizing: border-box;;
+}
 .page-content {
   display: flex;
   justify-content: center;
+  /* overflow-y: auto; */
+  padding-bottom: 50px;
+
 }
 .demo-list-control {
   width: 80% !important;
 }
 li {
-  font-size: 1.5em !important;
+  font-size: 1em !important;
 }
 .mdl-button--icon {
   width: 50px !important;
-  margin: 10px;
 }
 .mdl-list__item {
-  margin: 5px;
+margin: 5px;
+  padding: 5px !important;
   height: 70px;
   background-color: rgb(245, 241, 241);
 }
 .add-item-form {
+  box-sizing: border-box;;
   width: 100%;
   height: 120px;
   background-color: rgb(187, 211, 221);
@@ -47,7 +56,7 @@ li {
 }
 .mdl-textfield__input,
 .mdl-textfield__label {
-  font-size: 24px !important;
+  font-size: 1.2em !important;
 }
 .header-buttons {
   width: auto;
@@ -65,19 +74,19 @@ li {
   height: 120px;
   background-color: rgb(209, 193, 189);
   display: flex;
-  justify-content: center;
+  justify-content: space-around !important;
   align-items: center;
-  padding-left: 50px;
+  padding-left: 20px;
   position: fixed;
   bottom: 0;
   z-index: -5;
 }
 .buy-textfield {
-  width: 25% !important;
+  width: 22% !important;
   margin: 10px !important;
 }
 .buy-text {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 .totales {
   width: 100%;
@@ -100,9 +109,9 @@ li {
   height: 120px;
   background-color: rgb(209, 193, 189);
   display: none;
-  justify-content: center;
+  justify-content:  space-around !important;
   align-items: center;
-  padding-left: 50px;
+  padding-left: 20px;
   position: fixed;
   bottom: 0;
   z-index: -5;
@@ -133,4 +142,10 @@ li {
 
 .active{
   background-color: red;
+}
+
+.btn-li-lista{
+  box-sizing: border-box;
+  display: flex;
+  width: 100px !important;
 }

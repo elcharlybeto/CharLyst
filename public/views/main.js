@@ -1,6 +1,6 @@
 import { html } from "../vendor/lit-html/index.js";
 import { header } from "../components/header.js";
-import { Product } from "../models/Product.js";
+import { Product } from "../models/product.js";
 import { generateId } from "../utils/genid.js";
 import '../vendor/sortable/sortable.js'
 
@@ -111,30 +111,32 @@ export function view() {
                     <span class="mdl-list__item-primary-content">
                       ${prod.descripcion}
                     </span>
-                    <button
-                      @click=${editProduct}
-                      class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"
-                    >
-                      <i class="material-icons">edit</i>
-                    </button>
-                    <button
-                      @click=${deleteProduct}
-                      class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"
-                    >
-                      <i class="material-icons">delete</i>
-                    </button>
-                    <button
-                      @click=${buyProduct}
-                      class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"
-                    >
-                      <i class="material-icons">check</i>
-                    </button>
+                    <div class="btn-li-lista">
+                      <button
+                        @click=${editProduct}
+                        class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"
+                      >
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button
+                        @click=${deleteProduct}
+                        class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"
+                      >
+                        <i class="material-icons">delete</i>
+                      </button>
+                      <button
+                        @click=${buyProduct}
+                        class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"
+                      >
+                        <i class="material-icons">check</i>
+                      </button>
+                    </div>
                   </li>
                 `
             )}
           </ul>
         </div>
-
+</main>
         <form @submit=${addProducto} class="add-item-form">
           <div
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
@@ -216,7 +218,6 @@ export function view() {
             <i class="material-icons">cancel</i>
           </button>
         </form>
-      </main>
     </div>
   `;
 }
@@ -233,7 +234,7 @@ export function init() {
     
   const el = document.querySelector(".products-list");
   Sortable.create(el,{
-   // handle: ".dnd-handler",
+    handle: ".dnd-handler",
    // ghostClass: "ghost",
     onEnd: e=>{
       moveArrayItem(window.state.productos, e.oldIndex, e.newIndex);
