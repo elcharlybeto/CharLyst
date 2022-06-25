@@ -1,5 +1,5 @@
-const SW_VERSION = 'v1'; 
-const CACHE_SHELL_NAME = "cache-v1";
+const SW_VERSION = 'v2'; 
+const CACHE_SHELL_NAME = "cache-v2";
 const CACHE_SHELL_FILES = [
   "/",
   "/index.html",
@@ -14,9 +14,8 @@ const CACHE_SHELL_FILES = [
   "/views/vaciarlista.js",
   "/views/vaciarcarro.js",
   "/views/vaciarhisto.js",
-  "/utils/genid.js",
+  "/utils/varios.js",
   "/utils/router.js",
-  "/utils/gotomain.js",
   "/components/header.js",
   "/models/product.js",
   "/models/state.js",

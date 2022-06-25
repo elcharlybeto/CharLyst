@@ -1,5 +1,6 @@
 import { html } from "../vendor/lit-html/index.js";
 import { header } from "../components/header.js";
+import { deshabilitarLista, habilitarLista } from "../utils/varios.js";
 
 export function view() {
   let { productos } = window.state;
@@ -11,6 +12,7 @@ export function view() {
       carro.map((p) => {
         total += p.cantidad * p.precio;
       });
+      total= total % 1 == 0? total : total.toFixed(2);
     };
     return total;
   };
@@ -22,6 +24,7 @@ export function view() {
     formuEdit.precio.value = producto[0].precio;
     formuEdit.cantidad.value = producto[0].cantidad;
     formuEdit.dataset.id = prodId;
+    deshabilitarLista();
     formuEdit.precio.focus();
 
   }
@@ -39,6 +42,7 @@ export function view() {
       }
     }
     let formuAdd = document.querySelector(".edit-buy-item-form");
+    habilitarLista();
     formuAdd.style.display = "none";
 
   }
@@ -56,7 +60,7 @@ export function view() {
       ${header()}
       
       <div class="totales">Total: $ ${totalCarro()}</div>
-      <main class="mdl-layout__content">
+      <main id="lista" class="mdl-layout__content">
         <div class="page-content">
           <style>
             .demo-list-control {
@@ -72,7 +76,7 @@ export function view() {
               <li class="mdl-list__item" data-id=${prod.id}>
                <span class="cant-prod">${prod.cantidad}</span>
                <span class="mdl-list__item-primary-content">
-                ${prod.descripcion} - Precio: $ ${prod.cantidad * prod.precio}
+                ${prod.descripcion} - Precio: $ ${(prod.cantidad * prod.precio).toFixed(2)}
                </span>
               <button @click=${deleteProduct}
                  class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"
@@ -90,8 +94,8 @@ export function view() {
             
           </ul>
         </div>
-
-        <form @submit=${editCompra} class="edit-buy-item-form">
+        </main>
+        <form autocomplete="off" @submit=${editCompra} class="edit-buy-item-form">
           <span class="buy-text">$</span>
           <div
             class="buy-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
@@ -135,7 +139,7 @@ export function view() {
             <i class="material-icons">cancel</i>
           </button>
         </form>
-      </main>
+      
     </div>
   `;
 }

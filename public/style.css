@@ -3,6 +3,7 @@
 *{
   box-sizing: border-box;;
 }
+
 .page-content {
   display: flex;
   justify-content: center;
@@ -44,12 +45,12 @@ margin: 5px;
   width: 100%;
   height: 120px;
   background-color: rgb(238, 229, 153);
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   position: fixed;
   bottom: 0;
-  z-index: -2;
+  z-index: 2;
 }
 .mdl-textfield {
   width: 70% !important;
@@ -73,13 +74,13 @@ margin: 5px;
   width: 100%;
   height: 120px;
   background-color: rgb(209, 193, 189);
-  display: flex;
+  display: none;
   justify-content: space-around !important;
   align-items: center;
   padding-left: 20px;
   position: fixed;
   bottom: 0;
-  z-index: -5;
+  z-index: 2;
 }
 .buy-textfield {
   width: 22% !important;
@@ -89,6 +90,7 @@ margin: 5px;
   font-size: 1.2em;
 }
 .totales {
+  margin-left: 10px;
   width: 100%;
   height: 70px;
   line-height: 70px;
@@ -114,7 +116,7 @@ margin: 5px;
   padding-left: 20px;
   position: fixed;
   bottom: 0;
-  z-index: -5;
+  z-index: 2;
 }
 
 .confirm{
@@ -148,4 +150,39 @@ margin: 5px;
   box-sizing: border-box;
   display: flex;
   width: 100px !important;
+}
+
+#oops{
+  width: 200px;
+
+}
+.oops p{
+  font-weight: 500;
+  font-size: 1.5em;
+
+}
+
+.oops{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  width: 80%;
+}
+
+.oops a{
+  color: lime;
+  font-size: 2em;
+  font-weight: bold;
+
+}
+.main404 {
+  display: flex;
+  justify-content: center;
+}
+
+.disabledDiv {
+  pointer-events: none;
+  opacity: 0.4;
 }

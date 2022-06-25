@@ -1,7 +1,8 @@
 import { html } from "../vendor/lit-html/index.js";
 import { header } from "../components/header.js";
 import { Product } from "../models/product.js";
-import { generateId } from "../utils/genid.js";
+import { generateId } from "../utils/varios.js";
+import { deshabilitarLista, habilitarLista } from "../utils/varios.js";
 import '../vendor/sortable/sortable.js'
 
 export function view() {
@@ -14,9 +15,10 @@ export function view() {
     let desc = e.target.producto.value;
     if (desc) {
       let nuevo = new Product(generateId(), desc, 0, 1);
-      window.state.productos = [...productos, nuevo];
+      window.state.productos = [ nuevo, ...productos];
       e.target.reset();
     }
+    habilitarLista();
   };
 
   const editProduct = (e) => {
@@ -24,9 +26,11 @@ export function view() {
     let producto = productos.filter((prod) => prod.id == prodId);
     let formuAdd = document.querySelector(".add-item-form");
     let formuEdit = document.querySelector(".edit-item-form");
-    formuAdd.style.zIndex = -10;
+    formuEdit.style.display = "flex";
+    formuAdd.style.display = "none";
     formuEdit.producto.value = producto[0].descripcion;
     formuEdit.dataset.id = prodId;
+    deshabilitarLista();
     formuEdit.producto.focus();
   };
 
@@ -39,8 +43,11 @@ export function view() {
       });
       window.state.productos = [...window.state.productos];
     }
+    habilitarLista();
+    let formuEdit = document.querySelector(".edit-item-form");
+    formuEdit.style.display = "none";
     let formuAdd = document.querySelector(".add-item-form");
-    formuAdd.style.zIndex = 2;
+    formuAdd.style.display = "flex";
   };
 
   const deleteProduct = (e) => {
@@ -56,11 +63,12 @@ export function view() {
     let producto = productos.filter((p) => p.id == prodId);
     let formuAdd = document.querySelector(".add-item-form");
     let formuBuy = document.querySelector(".buy-item-form");
-    formuAdd.style.zIndex = -10;
-    formuBuy.style.zIndex = 2;
+    formuAdd.style.display = "none";
+    formuBuy.style.display = "flex";
     formuBuy.dataset.id = prodId;
     formuBuy.cantidad.value = producto[0].cantidad;
     formuBuy.precio.value = producto[0].precio != 0 ? producto[0].precio : "";
+    deshabilitarLista();
     formuBuy.precio.focus();
   };
   const comprar = (e) => {
@@ -76,11 +84,13 @@ export function view() {
         window.state.carro = [comprado[0], ...carro];
       }
     }
-    e.target.style.zIndex = -5;
+    e.target.style.display = "none";
     e.target.reset();
     let formuAdd = document.querySelector(".add-item-form");
-    formuAdd.style.zIndex = 2;
+    formuAdd.style.display= "flex";
+    habilitarLista();
   };
+   
 
 
   return html`
@@ -88,7 +98,7 @@ export function view() {
       ${header()}
       
       
-      <main class="mdl-layout__content">
+      <main id="lista" class="mdl-layout__content">
         <div class="page-content">
           <style>
             .demo-list-control {
@@ -136,25 +146,25 @@ export function view() {
             )}
           </ul>
         </div>
-</main>
-        <form @submit=${addProducto} class="add-item-form">
-          <div
+      </main>
+        <form autocomplete="off" @submit=${addProducto} class="add-item-form">
+          <div 
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
           >
-            <input class="mdl-textfield__input" type="text" id="producto" />
+            <input @focus=${deshabilitarLista} class="mdl-textfield__input" type="text" id="producto" />
             <label class="mdl-textfield__label" for="producto"
               >Producto...</label
             >
           </div>
-          <button
+          <button 
             class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect"
           >
             <i class="material-icons">add</i>
           </button>
         </form>
 
-        <form @submit=${editar} class="edit-item-form">
-          <div
+        <form autocomplete="off" @submit=${editar} class="edit-item-form">
+          <div 
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
           >
             <input class="mdl-textfield__input" type="text" id="producto" />
@@ -174,7 +184,7 @@ export function view() {
           </button>
         </form>
 
-        <form @submit=${comprar} class="buy-item-form">
+        <form autocomplete="off" @submit=${comprar} class="buy-item-form">
           <span class="buy-text">$</span>
           <div
             class="buy-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
@@ -241,5 +251,8 @@ export function init() {
       localStorage.setItem('productos',JSON.stringify(window.state.productos));
   
     }
+    
   });
+  
+
 }
