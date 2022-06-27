@@ -1,4 +1,4 @@
-const SW_VERSION = 'v2'; 
+const SW_VERSION = 'v3'; 
 const CACHE_SHELL_NAME = "cache-v2";
 const CACHE_SHELL_FILES = [
   "/",
@@ -19,6 +19,8 @@ const CACHE_SHELL_FILES = [
   "/components/header.js",
   "/models/product.js",
   "/models/state.js",
+  "/images.oops.jpg",
+  "/favicon.png"
 ];
 const CACHE_VENDOR_NAME = "vendor-v1";
 const CACHE_VENDOR_FILES = [
@@ -32,6 +34,7 @@ const CACHE_VENDOR_FILES = [
   "/vendor/mdl/material.min.js",
   "/vendor/sortable/sortable.js",
 ];
+
 self.addEventListener("install", (e) => {
   const promCacheShell = caches
     .open(CACHE_SHELL_NAME)

@@ -25,7 +25,7 @@ async function registrarSW(){
     await navigator.serviceWorker.ready; 
 
   
-    registration.addEventListener("updatefound", (e) => { //este evento en desarrollo hay que comentarlo
+    registration.addEventListener("updatefound", (e) => { 
       if (registration.installing) {
         registration.installing.addEventListener("statechange", (e) => {
           if (navigator.serviceWorker.controller) {
