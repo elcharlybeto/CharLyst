@@ -1,6 +1,6 @@
 import { html } from "../vendor/lit-html/index.js";
 import { header } from "../components/header.js";
-import { Product } from "../models/product.js";
+import { Product } from "../models/Product.js";
 import { generateId } from "../utils/varios.js";
 import { deshabilitarLista, habilitarLista } from "../utils/varios.js";
 import '../vendor/sortable/sortable.js'
