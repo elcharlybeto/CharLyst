@@ -1,5 +1,5 @@
-const SW_VERSION = 'v3'; 
-const CACHE_SHELL_NAME = "cache-v2";
+const SW_VERSION = 'v1'; 
+const CACHE_SHELL_NAME = "cache-v1";
 const CACHE_SHELL_FILES = [
   "/",
   "/index.html",
@@ -17,7 +17,7 @@ const CACHE_SHELL_FILES = [
   "/utils/varios.js",
   "/utils/router.js",
   "/components/header.js",
-  "/models/product.js",
+  "/models/Product.js",
   "/models/state.js",
   "/images.oops.jpg",
   "/favicon.png"
