@@ -11,7 +11,7 @@ window.state = new State(
 
 
 window.addEventListener("load", e=>{
-  registrarSW();
+ // registrarSW();
   router();
 });
 
