@@ -19,7 +19,7 @@ const CACHE_SHELL_FILES = [
   "/components/header.js",
   "/models/Product.js",
   "/models/state.js",
-  "/images.oops.jpg",
+  "/images/oops.jpg",
   "/favicon.png"
 ];
 const CACHE_VENDOR_NAME = "vendor-v1";
