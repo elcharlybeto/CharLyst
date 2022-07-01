@@ -1,4 +1,4 @@
-const SW_VERSION = 'v1'; 
+const SW_VERSION = 'v2'; 
 const CACHE_SHELL_NAME = "cache-v1";
 const CACHE_SHELL_FILES = [
   "/",
