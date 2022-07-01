@@ -194,6 +194,7 @@ export function view() {
               type="text"
               pattern="-?[0-9]*(.[0-9]+)?"
               id="precio"
+              inputmode="numeric"
             />
             <label class="mdl-textfield__label" for="precio"
               >Precio unit/kg</label
@@ -208,6 +209,7 @@ export function view() {
               type="text"
               pattern="-?[0-9]*(.[0-9]+)?"
               id="cantidad"
+              inputmode="numeric"
             />
             <label class="mdl-textfield__label" for="cantidad"
               >Cantidad...</label

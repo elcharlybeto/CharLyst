@@ -1,6 +1,6 @@
 import { html } from "../vendor/lit-html/index.js";
 import { header } from "../components/header.js";
-import { goToMain } from "../utils/gotomain.js";
+import { goToMain } from "../utils/varios.js";
 
 export function view() {
 
