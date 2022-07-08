@@ -20,6 +20,20 @@ export function view() {
     window.state.productos = [producto[0], ...productos];
   };
 
+  const ordAlpha = ()=>{
+    console.log("ordenar");
+    window.state.historial = historial.sort( (a, b) => {
+      if (a.descripcion > b.descripcion) {
+        return 1;
+      }
+      if (a.descripcion < b.descripcion) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+  }
+
   return html`
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
      ${header()}
@@ -34,6 +48,11 @@ export function view() {
               display: inline;
             }
           </style>
+           <button @click=${ordAlpha} id="ordenar"
+            class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect"
+          >
+            <i class="material-icons">sort</i>
+          </button>
           <ul class="demo-list-control mdl-list">
            ${historial.map(h => html`
            <li class="mdl-list__item" data-id=${h.id}>

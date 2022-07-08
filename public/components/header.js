@@ -52,6 +52,9 @@ export function header() {
         <a class="mdl-navigation__link" href="#/vaciarhisto"
           >Vaciar Historial</a
         >
+        <a class="mdl-navigation__link" href="#/anularcompra"
+          >Anular Compra</a
+        >
       </nav>
     </div>
   `;

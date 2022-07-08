@@ -18,6 +18,10 @@ export function view() {
       window.state.productos = [ nuevo, ...productos];
       e.target.reset();
     }
+    let boton = document.getElementById("agregar");
+    boton.style.display = "block";
+    let formuAdd = document.querySelector(".add-item-form");
+     formuAdd.style.display="none";
     habilitarLista();
   };
 
@@ -66,7 +70,7 @@ export function view() {
     formuAdd.style.display = "none";
     formuBuy.style.display = "flex";
     formuBuy.dataset.id = prodId;
-    formuBuy.cantidad.value = producto[0].cantidad;
+    formuBuy.cantidad.value = 1;
     formuBuy.precio.value = producto[0].precio != 0 ? producto[0].precio : "";
     deshabilitarLista();
     formuBuy.precio.focus();
@@ -90,6 +94,14 @@ export function view() {
     formuAdd.style.display= "flex";
     habilitarLista();
   };
+
+  const habilitoAdd = (e) => {
+     let boton = document.getElementById("agregar");
+     boton.style.display="none";
+     let formuAdd = document.querySelector(".add-item-form");
+     formuAdd.style.display="flex";
+     formuAdd.producto.focus();
+  };
    
 
 
@@ -108,6 +120,11 @@ export function view() {
               display: inline;
             }
           </style>
+          <button @click=${habilitoAdd} id="agregar"
+            class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect"
+          >
+            <i class="material-icons">add</i>
+          </button>
           <ul class="products-list demo-list-control mdl-list">
             ${window.state.productos.map(
               (prod) =>

@@ -3,11 +3,11 @@ import { header } from "../components/header.js";
 import { goToMain } from "../utils/varios.js";
 
 export function view() {
-  let { historial } = window.state;
+  let { productos } = window.state;
   let { carro } = window.state;
 
-  const vaciarCarro = () => {
-    window.state.historial = [...carro, ...historial];
+  const anularCompra = () => {
+    window.state.productos = [...carro, ...productos];
     window.state.carro = [];
     goToMain();
   };
@@ -19,9 +19,9 @@ export function view() {
       ${header()}
       <main class="contenedor">
         <div class="confirm">
-          <div class="pregunta">¿Desea vaciar el carro de compras?</br>TODOS los productos pasarán al HISTORIAL <i class="material-icons"> schedule </i> </div>
+          <div class="pregunta">¿Desea vaciar el carro de compras?</br>TODOS los productos volverán a la LISTA <i class="material-icons"> storage </i> </div>
           <div class="respuestas">
-            <button @click=${vaciarCarro}
+            <button @click=${anularCompra}
               class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored btn-ok"
             >
               <i class="material-icons">check</i>
